@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <!-- Output to Console -->
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- reference: http://logback.qos.ch/manual/layouts.html -->
+
+        <encoder>
+            <pattern>[%date{HH:mm:ss,SSS}] %level %message [%class{0}]%n</pattern>
+            <!-- <pattern>[%date{HH:mm:ss,SSS}] %highlight(%-5level) %message [%class{0}]%n</pattern> -->
+        </encoder>
+    </appender>
+
+    <logger name="org.smartcity" level="INFO"/>
+
+    <!-- to get rid of the 'Package not found or wo package-info.java' from the AnnotationBinder class -->
+    <logger name="org.hibernate.cfg" level="ERROR"/>
+
+    <!-- The root logger -->
+    <root>
+        <level value="WARN"/>
+        <appender-ref ref="Console"/>
+    </root>
+</configuration>
